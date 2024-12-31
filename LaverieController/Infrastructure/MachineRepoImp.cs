@@ -64,5 +64,32 @@ namespace LaverieController.Infrastructure
                 throw new Exception($"An error occurred while updating the machine state: {ex.Message}");
             }
         }
+        public float GetTotalCostForMachineToday(int machineId)
+        {
+            float totalCost = 0;
+
+            string query = @"
+                SELECT SUM(c.Cout) AS TotalCost
+                FROM cycle_history ch
+                INNER JOIN Cycles c ON ch.CycleId = c.Id
+                WHERE ch.MachineId = @machineId AND DATE(ch.Timestamp) = CURDATE()";
+
+            using (MySqlConnection conn = new MySqlConnection(_connectionString))
+            {
+                conn.Open();
+                using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@machineId", machineId);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null && result != DBNull.Value)
+                    {
+                        totalCost = Convert.ToSingle(result);
+                    }
+                }
+            }
+
+            return totalCost;
+        }
     }
 }

@@ -26,9 +26,5 @@ namespace LaverieController.Modele.Business
         {
             return _proprietaireDao.GetPropriétaireById(id);
         }
-        public float GetTotalCostForLaverieToday(int laverieId)
-        {
-            return _proprietaireDao.GetTotalCostForLaverieToday(laverieId);
-        }
     }
 }

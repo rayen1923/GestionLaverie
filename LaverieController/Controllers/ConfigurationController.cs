@@ -73,19 +73,5 @@ namespace LaverieController.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
-
-        [HttpGet("total_laverie/{laverieId}")]
-        public IActionResult GetTotalCostForLaverieToday(int laverieId)
-        {
-            try
-            {
-                float totalCost = _business.GetTotalCostForLaverieToday(laverieId);
-                return Ok(new { LaverieId = laverieId, TotalCost = totalCost });
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"Internal server error: {ex.Message}");
-            }
-        }
     }
 }

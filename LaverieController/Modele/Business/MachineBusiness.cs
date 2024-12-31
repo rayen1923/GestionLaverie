@@ -15,5 +15,10 @@ namespace LaverieController.Modele.Business
         {
             return _machineDAO.UpdateMachineEtat(machineId, cycleId);
         }
+
+        public float GetTotalCostFormMchineToday(int machineId)
+        {
+            return _machineDAO.GetTotalCostForMachineToday(machineId);
+        }
     }
 }

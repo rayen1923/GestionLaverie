@@ -8,6 +8,8 @@ builder.Services.AddScoped<IProprietaireDAO, ProprietaireRepoImp>();
 builder.Services.AddScoped<ConfigurationBusiness>();
 builder.Services.AddScoped<IMachineDAO, MachineRepoImp>();
 builder.Services.AddScoped<MachineBusiness>();
+builder.Services.AddScoped<LaverieBusiness>();
+builder.Services.AddScoped<ILaverieDAO, LaverieRepoImp>();
 
 
 builder.Services.AddControllers();

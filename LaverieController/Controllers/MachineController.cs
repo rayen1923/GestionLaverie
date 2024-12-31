@@ -36,5 +36,19 @@ namespace LaverieController.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpGet("total_machine/{machineId}")]
+        public IActionResult GetTotalCostForMachineToday(int machineId)
+        {
+            try
+            {
+                float totalCost = _business.GetTotalCostFormMchineToday(machineId);
+                return Ok(new { MachineId = machineId, TotalCost = totalCost });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
     }
 }

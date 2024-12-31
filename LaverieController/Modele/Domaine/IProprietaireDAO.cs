@@ -7,6 +7,5 @@ namespace LaverieController.Modele.Domaine
         List<Propriétaire> GetAllPropriétairesWithDetails();
         int Login(string username, string password);
         Propriétaire GetPropriétaireById(int id);
-        float GetTotalCostForLaverieToday(int laverieId);
     }
 }
