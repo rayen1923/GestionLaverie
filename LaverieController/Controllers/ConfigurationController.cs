@@ -73,5 +73,11 @@ namespace LaverieController.Controllers
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+
+        [HttpGet("test-connection")]
+        public IActionResult TestConnection()
+        {
+            return Ok(new { Message = "Connection successful" });
+        }
     }
 }

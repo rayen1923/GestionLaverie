@@ -1,5 +1,4 @@
-﻿
-using LaverieController.Modele.Domaine;
+﻿using LaverieController.Modele.Domaine;
 
 namespace LaverieController.Modele.Business
 {

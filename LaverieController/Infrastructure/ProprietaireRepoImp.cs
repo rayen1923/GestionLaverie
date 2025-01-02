@@ -213,8 +213,6 @@ namespace LaverieController.Infrastructure
             }
 
             return propriétaire;
-        }
-
-        
+        } 
     }
 }
